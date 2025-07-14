@@ -1,0 +1,90 @@
+✅ 1. Recycling Center
+➤ Navigate to: App Launcher > Recycling Centers > New
+Fill fields:
+
+Field	Value
+Name	Center A
+Capacity__c	1000
+Location__c	Delhi
+
+
+
+🟢 This record is saved. You’ll assign Plastic Waste to this center in the next step.
+
+✅ 2. Plastic Waste
+➤ Navigate to: Plastic Wastes > New
+Fill fields:
+
+Field	Value
+Weight__c	30
+Type__c	PET
+Collection_Date__c	Today’s date
+Status__c	Collected
+Recycling_Center__c	Center A (lookup)
+
+🟢 You’re tracking raw plastic being collected and where it goes.
+
+✅ 3. Recycled Product
+➤ Navigate to: Recycled Products > New
+Fill fields:
+
+Field	Value
+Name	Bottle Pellets
+Stock_Level__c	70
+Threshold__c	100
+Price__c	23
+
+➡️ Auto Field (Formula):
+
+Stock_Low_On_Product will immediately show: "Low Stock - Restock Needed"
+(Because 70 < 100)
+
+✅ 4. Order
+➤ Navigate to: Orders > New
+Fill fields:
+
+Field	Value
+Recycled_Product__c	Bottle Pellets (lookup)
+Quantity__c	150
+Delivery_Date__c	3 days from now
+Customer__c	Acme Industries (lookup)
+
+🎯 WHAT HAPPENS NOW:
+
+Trigger UpdateStockAfterOrder fires
+
+Stock deducted (from 70 → 0)
+
+Since stock < ordered quantity, it creates a Restock Request
+➤ Requested Quantity = 80
+➤ Status = Pending
+
+✅ 5. Restock Request
+➤ Navigate to: Restock Requests > [Edit Newly Created One]
+Set:
+
+Field	Value
+Status__c	Approved
+
+🎯 WHAT HAPPENS NOW:
+
+Trigger UpdateStockAfterRestockApproval fires
+
+Adds 80 to Product Stock Level (0 → 80)
+
+Email sent to warehouse manager via EmailNotificationHelper
+
+✅ 6. Flow-Based Task
+➤ When does this run?
+Daily at 6:00 AM via Scheduled Flow
+
+🎯 WHAT IT DOES:
+
+If any Recycled Product has Stock < Threshold
+➤ It creates a Task:
+
+Subject: “Stock is low — please restock!”
+
+Owner: Product record owner
+
+Status: In Progress
