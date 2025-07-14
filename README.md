@@ -192,4 +192,4 @@ sfdx auth:web:login -a replastic-prod
 
 ## 🙏 Support
 
-If you face issues, raise them under GitHub Issues or contact: `sumitkarki1114919@agentforce.com`
+If you face issues, raise them under GitHub Issues or contact: `sumitkarki1114@gmail.com`
