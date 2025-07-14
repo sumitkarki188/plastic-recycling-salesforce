@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>X3arrowsaroundearthvectorillustratio</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>A Lightning App to manage plastic waste operations, including recycling, orders, and stock.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Re Plastic Innovations</label>
+    <navType>Standard</navType>
+    <tabs>Re_Plastic_Innovations_Plastic_Waste__c</tabs>
+    <tabs>Re_Plastic_Innovations_Recycled_Product__c</tabs>
+    <tabs>Re_Plastic_Innovations_Recycling_Center__c</tabs>
+    <tabs>Re_Plastic_Innovations_Order__c</tabs>
+    <tabs>Re_Plastic_Innovations_Restock_Request__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Re_Plastic_Innovations_UtilityBar</utilityBar>
+</CustomApplication>
